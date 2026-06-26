@@ -141,24 +141,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // const ctxInvoice = document.getElementById('invoiceStatusChart').getContext('2d');
-    // new Chart(ctxInvoice, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['Paid', 'Pending', 'Overdue'],
-    //         datasets: [{
-    //             data: [75, 20, 5],
-    //             backgroundColor: ['#10b981', '#fbbf24', '#ef4444'],
-    //             borderWidth: 0,
-    //             cutout: '75%'
-    //         }]
-    //     },
-    //     options: {
-    //         responsive: true,
-    //         maintainAspectRatio: false,
-    //         plugins: { legend: { display: false } }
-    //     }
-    // });
+    const ctxInvoice = document.getElementById('invoiceStatusChart').getContext('2d');
+    new Chart(ctxInvoice, {
+        type: 'doughnut',
+        data: {
+            labels: ['Paid', 'Pending', 'Overdue'],
+            datasets: [{
+                data: [75, 20, 5],
+                backgroundColor: ['#10b981', '#fbbf24', '#ef4444'],
+                borderWidth: 0,
+                cutout: '75%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } }
+        }
+    });
 });
 
     function showToast(title, message, type) {
