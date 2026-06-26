@@ -1,0 +1,125 @@
+@media (max-width: 1399px) {
+      .flexDirectionNext {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start !important;
+    }
+}
+
+@media (max-width: 1299px) {
+    .illustration-wrapper img {
+        width: 95% !important;
+    }
+      .flexDirectionTwo {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar-left {
+        transform: translateX(-100%);
+    }
+
+    .sidebar-left.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .content-header,
+    .fixed-bottom-footer,
+    .main-content {
+        left: 0;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .fixed-bottom-footer {
+        right: 0;
+    }
+
+    .login-form-side {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flexDirection {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        margin-right: 0;
+        padding-bottom: 20px;
+        margin-top: 110px;
+    }
+
+    .sidebar-right {
+        position: relative;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        border-left: none;
+        border-top: 1px solid #e2e8f0;
+        padding: 30px 20px;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .fixed-bottom-footer {
+        position: relative;
+        margin-top: 20px;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px 30px;
+        height: auto;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        max-width: 100% !important;
+    }
+
+    header.content-header .d-flex.align-items-center.flex-grow-1 {
+        width: 100%;
+    }
+
+    header.content-header .d-flex.align-items-center.gap-3 {
+        width: 100%;
+        justify-content: end;
+    }
+
+    .login-form-side {
+        padding: 30px 20px;
+    }
+
+    .login-page-wrapper {
+        overflow-y: auto;
+    }
+
+}
+
+@media (min-width: 577px) and (max-width: 644px) {
+    .stat-card {
+        flex-direction: column;
+    }
+}

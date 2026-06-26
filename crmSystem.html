@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM System | Workspace Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsiveStyle.css">
+</head>
+
+<body>
+    <div class="sidebar-overlay" id="overlay" onclick="toggleMenu()"></div>
+    <aside class="sidebar-left" id="sidebar">
+        <a href="#" class="brand-logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Workspace</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item-custom active"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="#" class="nav-item-custom"><i class="fa-solid fa-users"></i> Team Workspace</a>
+            <a href="#" class="nav-item-custom"><i class="fa-solid fa-building"></i> Corporate</a>
+            <a href="#" class="nav-item-custom mt-3"><i class="fa-solid fa-plus-circle"></i> New Team</a>
+        </nav>
+        <div class="sidebar-footer-card">
+            <h6 class="small fw-bold mb-1">PRO PLAN</h6>
+            <p class="text-muted" style="font-size: 10px; font-weight: 500;">Expires on <span
+                    id="expiry-date">--/--/----</span></p>
+            <button class="btn btn-primary btn-sm w-100 rounded-pill py-2 fw-bold" style="font-size: 12px;">Upgrade
+                Now</button>
+        </div>
+
+        <div class="dropdown mt-4">
+            <div class="d-flex align-items-center gap-2 cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false" style="cursor: pointer;">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=6366f1&color=fff" class="rounded-circle"
+                    width="30">
+                <span class="small fw-medium">Admin User</span>
+            </div>
+            <ul class="dropdown-menu shadow-sm">
+                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-pen me-2"></i> Edit Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item text-danger" href="javascript:void(0)" onclick="logoutUser()"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
+            </ul>
+        </div>
+    </aside>
+    <header class="content-header">
+        <div class="d-flex align-items-center flex-grow-1">
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <div class="search-wrapper">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search for databases...">
+            </div>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+
+            <div class="dropdown">
+                <i class="fa-regular fa-bell fs-5 text-muted cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false"></i>
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg notif-menu">
+                    <div class="notif-header">Notifications</div>
+                    <li><a class="dropdown-item d-flex align-items-start gap-2 py-3" href="#">
+                            <div class="p-2 rounded bg-light text-primary"><i class="fa-solid fa-user-plus"></i></div>
+                            <div>
+                                <div class="fw-bold text-dark">Rahul Joined</div><small
+                                    class="text-muted text-wrap">Joined your workspace 5m ago.</small>
+                            </div>
+                        </a></li>
+                    <li><a class="dropdown-item d-flex align-items-start gap-2 py-3" href="#">
+                            <div class="p-2 rounded bg-light text-success"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <div class="fw-bold text-dark">Backup Successful</div><small
+                                    class="text-muted text-wrap">Database was backed up successfully.</small>
+                            </div>
+                        </a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="text-center"><a class="dropdown-item text-primary fw-bold" href="#">See all
+                            notifications</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <i class="fa-solid fa-gear fs-5 text-muted cursor-pointer dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false"></i>
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-id-card me-2"></i> Account Settings</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-wallet me-2"></i> Billing & Plans</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-lock me-2"></i> Security</a></li>
+                </ul>
+            </div>
+
+            <div class="vr mx-2 d-sm-block"></div>
+            <div class="fw-bold small d-sm-block">My Workspace</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html"
+                        class="text-decoration-none text-muted small">Dashboard</a></li>
+                <li class="breadcrumb-item active fw-bold small" aria-current="page">CRM Executive Suite</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex justify-content-between align-items-end mb-4 flexDirectionNext">
+            <div>
+                <h3 class="fw-bold text-dark mb-1">Sales & CRM Analytics</h3>
+                <p class="text-muted small mb-0">Monitoring <span class="text-primary fw-bold">428 active
+                        opportunities</span> across the global pipeline.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-white border shadow-sm px-3 rounded-3 fw-bold small"
+                    style="font-size: 13px; background-color: #fff; width: auto;height: 35.5px;"><i
+                        class="fa-solid fa-calendar-days me-2"></i> Oct&nbsp;2023</button>
+                <button class="btn btn-primary px-4 rounded-3 fw-bold small shadow-sm" style="font-size: 13px;"><i
+                        class="fa-solid fa-plus me-2"></i> Create&nbsp;Lead</button>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-xl-6 col-xxl-3">
+                <div class="kpi-card p-3 bg-white rounded-4 border">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="kpi-icon bg-primary-subtle text-primary"><i class="fa-solid fa-vault"></i></div>
+                        <div class="text-success small fw-bold"><i class="fa-solid fa-caret-up"></i> 12%</div>
+                    </div>
+                    <div class="text-muted x-small fw-bold text-uppercase">Weighted Pipeline</div>
+                    <div class="h4 fw-bold mb-0">$2,480,500</div>
+                    <div class="progress mt-3" style="height: 4px;">
+                        <div class="progress-bar" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-xxl-3">
+                <div class="kpi-card p-3 bg-white rounded-4 border">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="kpi-icon bg-success-subtle text-success"><i class="fa-solid fa-bullseye"></i></div>
+                        <div class="text-success small fw-bold"><i class="fa-solid fa-caret-up"></i> 5%</div>
+                    </div>
+                    <div class="text-muted x-small fw-bold text-uppercase">Win Rate</div>
+                    <div class="h4 fw-bold mb-0">34.8%</div>
+                    <div class="text-muted x-small mt-2">Industry Avg: 22%</div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-xxl-3">
+                <div class="kpi-card p-3 bg-white rounded-4 border">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="kpi-icon bg-warning-subtle text-warning"><i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+                        <div class="text-danger small fw-bold"><i class="fa-solid fa-caret-down"></i> 2d</div>
+                    </div>
+                    <div class="text-muted x-small fw-bold text-uppercase">Avg. Deal Cycle</div>
+                    <div class="h4 fw-bold mb-0">18 Days</div>
+                    <div class="text-muted x-small mt-2">Faster by 12% this month</div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-xxl-3">
+                <div class="kpi-card p-3 bg-white rounded-4 border">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="kpi-icon bg-danger-subtle text-danger"><i class="fa-solid fa-crown"></i></div>
+                        <div class="text-primary small fw-bold">Active</div>
+                    </div>
+                    <div class="text-muted x-small fw-bold text-uppercase">Lead Velocity</div>
+                    <div class="h4 fw-bold mb-0">142 leads/mo</div>
+                    <div class="text-muted x-small mt-2">Target: 150/mo</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+                <div class="bg-white p-4 rounded-4 border shadow-sm h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h6 class="fw-bold mb-0">Revenue Forecast vs Actual</h6>
+                        <select class="form-select form-select-sm w-auto border-0 bg-light small fw-bold">
+                            <option>Last 6 Months</option>
+                        </select>
+                    </div>
+                    <div style="height: 300px;">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="bg-white p-4 rounded-4 border shadow-sm h-100">
+                    <h6 class="fw-bold mb-4">Lead Sources</h6>
+                    <div style="height: 220px;">
+                        <canvas id="sourceChart"></canvas>
+                    </div>
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-between x-small fw-bold mb-2">
+                            <span>Organic Search</span> <span class="text-primary">45%</span>
+                        </div>
+                        <div class="progress mb-3" style="height: 6px;">
+                            <div class="progress-bar bg-primary" style="width: 45%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between x-small fw-bold mb-2">
+                            <span>Referrals</span> <span class="text-success">30%</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-success" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title mb-3 d-flex justify-content-between align-items-center">
+            <h6 class="fw-bold mb-0">Active Sales Pipeline</h6>
+            <a href="#" class="text-primary text-decoration-none x-small fw-bold">View All Deals <i
+                    class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+        <div class="bg-white rounded-4 border shadow-sm overflow-hidden mb-2">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr class="x-small text-muted fw-bold text-uppercase">
+                            <th class="px-4 py-3 border-0">Opportunity</th>
+                            <th class="py-3 border-0">Owner</th>
+                            <th class="py-3 border-0">Probability</th>
+                            <th class="py-3 border-0 text-center">Stage</th>
+                            <th class="py-3 border-0 text-end px-4">Deal Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-3">
+                                <div class="fw-bold text-dark mb-0">Enterprise ERP Upgrade</div>
+                                <div class="text-muted x-small">Acme Corporation • Technology</div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://ui-avatars.com/api/?name=Alex+J&background=eef2ff&color=6366f1"
+                                        class="rounded-circle" width="28">
+                                    <span class="small fw-medium">Alex Johnson</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress flex-grow-1" style="height: 6px; width: 60px;">
+                                        <div class="progress-bar bg-success" style="width: 85%"></div>
+                                    </div>
+                                    <span class="x-small fw-bold">85%</span>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <span
+                                    class="badge rounded-pill bg-indigo-subtle text-primary px-3 x-small">Negotiation</span>
+                            </td>
+                            <td class="text-end px-4 fw-bold text-dark">$142,000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">
+                                <div class="fw-bold text-dark mb-0">Cloud Security Audit</div>
+                                <div class="text-muted x-small">Global Finance Ltd • Banking</div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+M&background=fff1f2&color=be185d"
+                                        class="rounded-circle" width="28">
+                                    <span class="small fw-medium">Sarah Miller</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress flex-grow-1" style="height: 6px; width: 60px;">
+                                        <div class="progress-bar bg-warning" style="width: 45%"></div>
+                                    </div>
+                                    <span class="x-small fw-bold">45%</span>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge rounded-pill bg-amber-subtle text-amber px-3 x-small">Proposal</span>
+                            </td>
+                            <td class="text-end px-4 fw-bold text-dark">$28,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <aside class="sidebar-right">
+            <div class="notif-title">Pipeline Health</div>
+            <div class="p-3 bg-light rounded-4 mb-4">
+                <div class="d-flex justify-content-between x-small fw-bold mb-1">
+                    <span>Monthly Target</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-primary" style="width: 75%"></div>
+                </div>
+                <p class="x-small text-muted mt-2 mb-0">You need <strong>$250k</strong> more to reach goal.</p>
+            </div>
+
+            <div class="notif-title mt-4">Top Sales Performers</div>
+            <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-2">
+                <div class="position-relative">
+                    <img src="https://ui-avatars.com/api/?name=A+J&background=6366f1&color=fff" class="rounded-circle"
+                        width="35">
+                    <span
+                        class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-1"></span>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="x-small fw-bold">Alex Johnson</div>
+                    <div class="text-muted" style="font-size: 9px;">$420k Closed</div>
+                </div>
+                <div class="text-primary fw-bold x-small">1st</div>
+            </div>
+
+            <div class="notif-title mt-5">Recent CRM Activity</div>
+            <div class="activity-feed x-small">
+                <div class="d-flex gap-3 mb-3">
+                    <div class="activity-dot bg-success"></div>
+                    <div>
+                        <div class="fw-bold">Deal Won: Acme ERP</div>
+                        <div class="text-muted">Alex Johnson closed $142k deal.</div>
+                        <div class="text-muted mt-1" style="font-size: 9px;">2 hours ago</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-3 mb-3">
+                    <div class="activity-dot bg-primary"></div>
+                    <div>
+                        <div class="fw-bold">New Lead: Tesla Inc</div>
+                        <div class="text-muted">Assigned to Sarah Miller.</div>
+                        <div class="text-muted mt-1" style="font-size: 9px;">5 hours ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-outline-primary w-100 rounded-pill py-2 mt-4 fw-bold x-small">
+                Download Sales Deck
+            </button>
+        </aside>
+    </main>
+
+    <footer class="fixed-bottom-footer">
+        <div>
+            <a href="#" class="text-muted text-decoration-none me-3 small">Support</a>
+            <a href="#" class="text-muted text-decoration-none small">Documentation</a>
+        </div>
+
+        <div class="small text-muted fw-medium d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-2">
+                <span class="status-dot"></span>
+                <span>All systems operational</span>
+            </div>
+            <div class="vr text-secondary d-none d-md-block" style="height: 15px; opacity: 0.3;"></div>
+            <span class="fw-bold text-primary d-none d-md-inline" style="font-size: 11px;">REL v1.0.4</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
